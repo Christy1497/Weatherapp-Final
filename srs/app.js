@@ -38,7 +38,8 @@ function tempGeo(response) {
 document.querySelector("#city").innerHTML= response.data.name;
     
  //Current Temp
-document.querySelector("#temperature").innerHTML =Math.round(response.data.main.temp);
+ celciusTemp =response.data.main.temp;
+document.querySelector("#temperature").innerHTML =Math.round(celciusTemp);
 
 //humidity
 document.querySelector("#humidity").innerHTML =Math.round(response.data.main.temp);
@@ -55,7 +56,9 @@ let iconElement = document.querySelector("#icon");
 iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
 
+
 }
+
 
 //Change city name
 function searchCity(city) {
@@ -83,6 +86,36 @@ axios.get(apiUrl).then(tempGeo);
 
 }
 
+function displayFahrenheightTemp(event){
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+
+  //removing active class for celcius link
+  celcius.classList.remove("active");
+  fahrenheit.classList.add("active");
+
+
+  let fhTemp = (celciusTemp * 9)/ 5 + 32;
+  tempElement.innerHTML = Math.round(fhTemp);
+  
+}
+
+function displayCelciusTemp(event){
+  event.preventDefault();
+  let tempElement = document.querySelector("#temperature");
+
+  //removing active class for fahrenheit link
+  celcius.classList.add("active");
+  fahrenheit.classList.remove("active");
+
+  tempElement.innerHTML = Math.round(celciusTemp);
+}
+
+
+//creating a global variable
+let celciusTemp = null;
+
+
 
 let selectCity = document.querySelector("#search-form");
 selectCity.addEventListener("submit", handleSubmit);
@@ -90,4 +123,11 @@ selectCity.addEventListener("submit", handleSubmit);
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click",getCurrentLocation);
 
+let fahrenheit = document.querySelector("#fh-link");
+fahrenheit.addEventListener("click", displayFahrenheightTemp);
+
+let celcius = document.querySelector("#cl-link");
+celcius.addEventListener("click", displayCelciusTemp);
+
 searchCity("Kyrenia");
+

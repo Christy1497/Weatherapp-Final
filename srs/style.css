@@ -26,6 +26,7 @@
  }
 p{
     text-align: center;
+
 }
  .weather-app {
      border: 1px solid #dadde1;
@@ -51,8 +52,21 @@ p{
  .units {
      position: relative;
      top: -34px;
+     
  }
 
  .search-form {
      margin-bottom: 20px;
  }
+
+  .active{
+color:rgb(33, 33, 33);
+cursor: default;
+text-decoration: none;
+ }
+
+ .active:hover {
+text-decoration: none;
+
+ }
+ 
