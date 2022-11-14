@@ -22,14 +22,56 @@ if(minutes < 10){
 }
 
 
-console.log(`${day}  ${hours}:${minutes}`);
+//console.log(`${day}  ${hours}:${minutes}`);
 let currentDate = `${day} ${hours}:${minutes}`;
 
 
 let li = document.querySelector("#date");
 li.innerHTML = currentDate;
-console.log(currentDate);
+//console.log(currentDate);
 
+
+function displayForecast(response){
+  console.log(response.data.daily);
+let forecastElement = document.querySelector("#forecast");
+
+let days = ["Thur", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class ="row" >`;
+
+days.forEach(function (day){
+forecastHTML = 
+forecastHTML + 
+
+  `
+            <div class="col-2">
+              <div class="weather-forecast-date">${day}</div>
+              <img
+                src="http://openweathermap.org/img/wn/01d@2x.png"
+                alt=""
+                width="42"
+              />
+              <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temperature-max">18°</span>
+                <span class="weather-forecast-temperature-min">12°</span>
+              </div>
+            </div>
+            `;
+
+});
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates){
+  console.log(coordinates);
+
+  let apiKey = "ab8e7ef210556986d1c9a75d6007b825";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  //console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 
 
 function tempGeo(response) {
@@ -56,9 +98,9 @@ let iconElement = document.querySelector("#icon");
 iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
 
+getForecast(response.data.coord);
 
 }
-
 
 //Change city name
 function searchCity(city) {
@@ -130,4 +172,4 @@ let celcius = document.querySelector("#cl-link");
 celcius.addEventListener("click", displayCelciusTemp);
 
 searchCity("Kyrenia");
-
+ 
