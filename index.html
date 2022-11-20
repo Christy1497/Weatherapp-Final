@@ -35,12 +35,12 @@
               <input
                 type="submit"
                 value="Search"
-                class="form-control btn btn-primary shadow-sm w-100"
+                class="form-control btn btn-outline-secondary shadow-sm w-100"
               />
             </div>
             <div class="col-3">
               <button
-                class="btn btn-success w-100"
+                class="btn btn-outline-secondary w-100"
                 id="current-location-button"
               >
                 Current
@@ -59,6 +59,7 @@
           <div class="col-6">
             <div class="clearfix weather-temperature">
               <img src="" alt="Clear" id="icon" class="float-left" />
+
               <div class="float-left">
                 <span class="temperature" id="temperature"></span
                 ><span class="units">
@@ -70,13 +71,16 @@
           </div>
           <div class="col-6">
             <ul>
-              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Humidity <span id="humidity"></span>%</li>
               <li>Wind: <span id="wind"></span> km/h</li>
             </ul>
           </div>
         </div>
         <div class="weather-forecast" id="forecast"></div>
+
+        <!--<img src="srs/pics/day.jpg" alt="day" id="time-change" width="100px" />-->
       </div>
+
       <small>
         <p>
           <a

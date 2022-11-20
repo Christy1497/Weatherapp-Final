@@ -9,21 +9,28 @@ let days = [
   "Friday",
   "Saturday"
 ];
-let day = days[now.getDay()];
 
+let months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+let day = days[now.getDay()];
+let month = months[now.getMonth()];
+let date = now.getDate();
 let hours= now.getHours();
 if(hours < 10){
   hours = `0${hours}`;
 }
 
+
 let minutes= now.getMinutes();
 if(minutes < 10){
-  minutes = `0${minutes}`;
+  minutes = `0${minutes}`; 
+
+  
 }
 
 
 //console.log(`${day}  ${hours}:${minutes}`);
-let currentDate = `${day} ${hours}:${minutes}`;
+let currentDate = `${month} ${date}, ${day} ${hours}:${minutes}`;
 
 
 let li = document.querySelector("#date");
@@ -53,15 +60,23 @@ forecastHTML +
 
   `
             <div class="col-2">
-              <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+           <div class="card justify-content">
+           <div class="card-body">
+
+              <h3 class="weather-forecast-date">${formatDay(forecastDay.dt)}</h3>
+
+<h5><span class="weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}°</> -
+                <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°</span></h5>
+
+
+                <p class="card-text">${forecastDay.weather[0].main} </p>
+
               <img
                 src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                 alt=""
                 width="42"
               />
-              <div class="weather-forecast-temperature">
-                <span class="weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}°</span>
-                <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°</span>
+                 </div>
               </div>
             </div>
             `;
@@ -166,6 +181,7 @@ function displayCelciusTemp(event){
 
 //creating a global variable
 let celciusTemp = null;
+
 
 
 

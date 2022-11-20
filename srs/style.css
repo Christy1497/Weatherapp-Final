@@ -1,5 +1,14 @@
- body {
-     font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
+  body {
+    font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
+    
+ }
+.weather-app{
+    background-color:#d6c8ff;
+    
+}
+ .card-body{
+    background-color:#fef0ff;
+    border-radius: 8px;
  }
 
  h1 {
@@ -10,6 +19,7 @@
      margin: 0;
      text-align: center;
  }
+
 
  ul {
      margin: 0 0 10px;
@@ -26,8 +36,10 @@
  }
 p{
     text-align: center;
+    font-size:12px;
 
 }
+
  .weather-app {
      border: 1px solid #dadde1;
      padding: 15px;
