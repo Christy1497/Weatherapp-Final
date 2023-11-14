@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>JS Objects & Arrays</title>
+    <link rel="stylesheet" href="srs/style.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h2><i>Christy's Weather App</i></h2>
+
+    <div class="container">
+      <div class="weather-app" id="weather-app">
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="search"
+                placeholder="Type a city.."
+                autofocus="on"
+                autocomplete="off"
+                id="city-input"
+                class="form-control shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-outline-secondary shadow-sm w-100"
+                onclick="descriptionDisplay()"
+              />
+            </div>
+            <div class="col-3">
+              <button
+                class="btn btn-outline-secondary w-100"
+                id="current-location-button"
+              >
+                Current
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="overview">
+          <h1 id="city"></h1>
+          <ul>
+            <li><strong>Last updated:</strong> <span id="date"></span></li>
+            <li id="description"></li>
+          </ul>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="clearfix weather-temperature">
+              <img src="" alt="Clear" id="icon" class="float-left" />
+
+              <div class="float-left">
+                <span class="temperature" id="temperature"></span
+                ><span class="units">
+                  <a href="#" id="cl-link" class="active">°C </a> |
+                  <a href="#" id="fh-link">°F</a></span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li>Humidity <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+            </ul>
+          </div>
+        </div>
+        <div class="weather-forecast" id="forecast"></div>
+
+        <!--<img src="srs/pics/day.jpg" alt="day" id="time-change" width="100px" />-->
+      </div>
+
+      <small>
+        <p>
+          <a
+            href="https://github.com/Christy1497/Weatherapp-Final"
+            target="_blank"
+            >View Source Code</a
+          >
+          Coded by Christine😊
+        </p>
+      </small>
+    </div>
+
+    <script src="srs/app.js"></script>
+  </body>
+</html>
